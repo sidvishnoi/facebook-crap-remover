@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Facebook Crap Remover - Options</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Write keywords (comma separated)</h2>
+  <form id="form">
+    <input id="keywords" type="text" placeholder="keyword1, key word 2, third,fourth" autocomplete="off" spellcheck="false" />
+    <button id="save" type="submit">Save</button>
+  </form>
+  <p>Posts hidden: <span id="stats">...</span></p>
+  <script src="options.js"></script>
+</body>
+
+</html>

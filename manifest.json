@@ -1,0 +1,24 @@
+{
+  "name": "Facebook Crap Remover",
+  "version": "1.0",
+  "description": "Removes unwanted posts from your news feed",
+  "manifest_version": 2,
+  "page_action": {
+    "default_title": "Facebook Crap Remover: Remove unwanted posts from your news feed"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "web_accessible_resources": [
+    "inject.js"
+  ],
+  "content_scripts": [{
+    "matches": ["https://*.facebook.com/*"],
+    "js": ["extension.js"]
+  }]
+}
