@@ -2,6 +2,8 @@
 
 Chrome extension to hide unwanted posts based on keywords from your news feed.
 
+Why? Because Facebook's "hide all from" filters aren't good enough.
+
 ## How to Install
 
 1. Download the repo as zip and unzip.

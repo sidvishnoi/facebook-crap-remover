@@ -1,6 +1,5 @@
-chrome.storage.sync.get('keywords', res => {
-  const keywords = res.keywords || [];
-  fbCrapRemover(keywords);
+chrome.storage.sync.get({ keywords: [] }, res => {
+  fbCrapRemover(res.keywords);
 });
 
 function fbCrapRemover(keywords) {
@@ -15,9 +14,9 @@ function fbCrapRemover(keywords) {
       const wordList = new Set(article.innerText.toLowerCase().split(/\s+/));
       if (keywords.some(keyword => wordList.has(keyword))) {
         article.remove();
-        chrome.storage.local.get('count', res => {
-          const count = res.count || 0;
-          chrome.storage.local.set({ count: count + 1 });
+        console.count('[Facebook Crap Remover] Posts Hidden');
+        chrome.storage.local.get({ count: 0 }, res => {
+          chrome.storage.local.set({ count: res.count + 1 });
         });
       }
     });
@@ -36,10 +35,7 @@ function fbCrapRemover(keywords) {
     const contentArea = document.getElementById('contentArea');
     if (!contentArea) return;
     clearInterval(timer);
-    observer.observe(contentArea, {
-      childList: true,
-      subtree: true
-    });
+    observer.observe(contentArea, { childList: true, subtree: true });
     removeCrap();
   }, 200);
 }
