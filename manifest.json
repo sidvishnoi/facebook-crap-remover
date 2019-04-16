@@ -14,9 +14,6 @@
     "page": "options.html",
     "open_in_tab": false
   },
-  "web_accessible_resources": [
-    "inject.js"
-  ],
   "content_scripts": [{
     "matches": ["https://*.facebook.com/*"],
     "js": ["extension.js"]
