@@ -11,8 +11,8 @@ function fbCrapRemover(keywords) {
     const elems = document.querySelectorAll(selector);
     elems.forEach(article => {
       article.classList.add('noncrap');
-      const str = article.innerText.toLowerCase();
-      if (keywords.some(keyword => str.includes(keyword))) {
+      const wordList = new Set(article.innerText.toLowerCase().split(/\s+/));
+      if (keywords.some(keyword => wordList.has(keyword))) {
         article.remove();
         console.count('[Facebook Crap Remover] Posts Hidden');
         chrome.storage.local.get({ count: 0 }, res => {
